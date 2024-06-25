@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJBA Protagonists</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <h1 class="title">JJBA Protagonists</h1>
+    <div class="container">
+      <!-- Card Template -->
+      <template id="card-template">
+        <div class="card">
+          <img class="background" alt="">
+          <div class="card-content">
+            <h3 class="title"></h3>
+          </div>
+          <div class="backdrop"></div>
+        </div>
+      </template>
+
+      <!-- Cards Data -->
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const cardData = [
+            { image: "./assets/01.jpg", title: "Jonathan Joestar" },
+            { image: "./assets/02.jpg", title: "Joseph Joestar" },
+            { image: "./assets/03.png", title: "Jotaro Kujo" },
+            { image: "./assets/04.png", title: "Josuke Higashikata" },
+            { image: "./assets/05.jpg", title: "Giorno Giovanna" },
+            { image: "./assets/06.jpg", title: "Jolyne Kujoh" },
+          ];
+
+          const container = document.querySelector(".container");
+          const template = document.getElementById("card-template");
+
+          cardData.forEach(data => {
+            const clone = template.content.cloneNode(true);
+            clone.querySelector(".background").src = data.image;
+            clone.querySelector(".title").textContent = data.title;
+            container.appendChild(clone);
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
